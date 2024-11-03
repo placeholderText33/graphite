@@ -1,0 +1,76 @@
+body {
+    margin: 0%;
+    overflow: hidden;
+}
+
+#info_text {
+    text-align: center;
+    font-family: Space Grotesk;
+}
+
+#header {
+	font-family: Space Grotesk;
+	font-size: 200%;
+	color: white;
+    position: fixed;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    left: 50px;
+    
+}
+
+#top_container {
+	height: 80px;
+	width: 100%;
+	border-style: none;
+	background-color: black;
+}
+
+#rectangle1 {
+    height: 40px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    position: absolute;
+    z-index: 0;
+    left: 277px;
+
+}
+
+#circle1 {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    border-radius: 40px;
+    position: absolute;
+    z-index: 0;
+    left: 252px;
+}
+
+#rectangle2 {
+    height: 40px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    position: absolute;
+    z-index: 0;
+    left: 0px;
+    margin-top: 33px;
+}
+
+#circle2 {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    border-radius: 40px;
+    position: absolute;
+    z-index: 0;
+    left: 25px;
+    margin-top: 53px;
+}

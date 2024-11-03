@@ -1,0 +1,149 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0%;
+	overflow: hidden;
+}
+
+#project_name {
+	font-family: Space Grotesk;
+	font-size: 600%;
+	text-align: center;
+	color: #737373;
+	margin-bottom: 0px
+}
+
+#info_text {
+	font-family: Space Grotesk;
+	text-align: center;
+	margin: 40px;
+}
+
+#top_container {
+	height: 80px;
+	width: 100%;
+	border-style: none;
+	background-color: black;
+}
+
+#name_smaller {
+	font-family: Space Grotesk;
+	position: fixed;
+	left: 50px;
+	color: white;
+    font-size: 200%;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+#info_btn {
+	font-family: Space Grotesk;
+	font-size: 200%;
+	position: fixed;
+	right: 0.25em;
+	margin-top: 15px;
+	border-style: none;
+	background: none;
+	color: white;
+}
+
+#info_btn:hover {
+    color: #e6e6e6;
+}
+
+#download_container {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#download_btn {
+	font-family: Space Grotesk;
+	font-size: 200%;
+}
+
+#download_btn:hover {
+	background-color: black;
+	color: white;
+	transition: 0.2s;
+	transition-timing-function: linear;
+}
+
+#rectangle1 {
+    height: 40px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    position: absolute;
+    z-index: 0;
+    left: 205px;
+
+}
+
+#circle1 {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    border-radius: 40px;
+    position: absolute;
+    z-index: 0;
+    left: 180px;
+}
+
+#rectangle2 {
+    height: 40px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    position: absolute;
+    z-index: 0;
+    left: 0px;
+    margin-top: 33px;
+}
+
+#circle2 {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    border-radius: 40px;
+    position: absolute;
+    z-index: 0;
+    left: 25px;
+    margin-top: 53px;
+}
+
+#list_container {
+    text-align: center;
+    margin-top: 20px;
+    top: 20%;
+}
+
+ul {
+    display: inline-block;
+    text-align: left;
+    font-family: Space Grotesk;
+    list-style-type: square;
+    font-size: 150%;
+}
+
+#capability_text {
+    font-family: Space Grotesk;
+	text-align: center;
+	margin: 40px;
+}
+
+#download_instructions {
+    font-family: Space Grotesk;
+	text-align: center;
+	margin: 400px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
