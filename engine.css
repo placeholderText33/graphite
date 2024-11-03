@@ -1,0 +1,146 @@
+#canvas {
+    display: block;
+    background: white;
+    z-index: 0;
+}
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#main_menu {
+    font-family: Space Grotesk;
+    text-align: center;
+    height: 100%;
+    width : 560px;
+    background: gray;
+    display: block;
+    border: 1px solid black;
+    right: 0px;
+    top: 0px;
+    position: fixed;
+    z-index: 0;
+}
+
+#gravity_dropdown{
+    width: 100%;
+    display: none;
+}
+
+#grav_slider {
+    height: 30px;
+    outline: none;
+    opacity: 0.8;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #bfbfbf;
+
+}
+
+::-moz-range-thumb {
+    height: 26px;
+    width: 26px;
+    border-radius: 20%;
+    background-color: #404040;
+}
+
+#slider:hover {
+    opacity: 1;
+}
+
+#slider ::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+#property_menu {
+    height: 100%;
+    width: 560px;
+    background: gray;
+    display: none;
+    border: 1px solid black;
+    right: 0px;
+    top: 0px;
+    position: fixed;
+    text-align: center;
+}
+
+.object_properties {
+    font-family: Space Grotesk;
+    margin-top: 50px;
+}
+
+#radius_dropdown {
+    display: none;
+    background-color: gray;
+
+}
+
+#mass_dropdown {
+    display: none;
+    background-color: gray;
+}
+
+#vel_dropdown {
+    display: none;
+    background-color: gray;
+}
+
+#acc_dropdown {
+    display: none;
+    background-color: gray;
+}
+
+.object_properties {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+}
+
+button {
+    border: none;
+    background-color: gray;
+    font-size: 22px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #4d4d4d;
+}
+
+.main_menu_object {
+    margin: auto;
+    display: block;
+    font-family: Space Grotesk;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.slider {
+    display: block;
+    margin: auto;
+    margin-top: 20px;height: 30px;
+    outline: none;
+    opacity: 0.8;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #bfbfbf;
+}
+
+#line_delete {
+    display: none;
+}

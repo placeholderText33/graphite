@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="engine.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <div id="main_menu">
+            <h1>Main Toolbar</h1>
+            <button id="circle_spawn" onclick="circleCreate()" class="main_menu_object" type="button">Create an object</button>
+            <button id="line_draw" class="main_menu_object" type="button" onclick="lineCreate()">Draw a line</button>
+            <button id="line_delete" class="main_menu_object" type="button" onclick="lineDelete()">Delete Line.</button>
+            <button id="vector" onclick="velVecDisplay()" class="main_menu_object" type="button">Display velocity vectors</button>
+            <button id="acc_display" class="main_menu_object" onclick="gravVecDisplay()" type="button">Display gravity</button>
+            <button id="gravity_container" onclick="gravityDisplay()" class="main_menu_object" type="button">Gravity Settings</button>
+            <div id="gravity_dropdown" class="main_menu_object">
+                <input id="grav_slider" type="range" min="0.2" max="0.8" step="0.05" oninput="gravitySlider()">
+                <p>Gravity: <span id="grav_output"></span></p>
+            </div>
+        </div>
+        <div id="property_menu">
+            <h1 id="menu_title" class="object_properties">Property Menu</h1>
+            <button id="radius" class="object_properties" onclick="radiusDropdown()">Radius Control</button>
+            <div id="radius_dropdown" class="dropdown">
+                <p>Current Radius: <span id="radius_val"></span></p>
+                <input id="radius_slider" class="slider" oninput="radiusSlider()" type="range" min="10" max="50" step="2">
+            </div>
+            <button id="mass" class="object_properties" onclick="massDropdown()">Mass Control</button>
+            <div id="mass_dropdown" class="dropdown">
+                <p>Current Mass: <span id="mass_val"></span></p>
+                <input id="mass_slider" class="slider" oninput="massSlider()" type="range" min="10" max="50" step="2">
+            </div>
+            <button id="delete_button" onclick="deleteObject()" type="button" class="object_properties">Delete Object</button>
+        </div>
+        <script src="engine.js"></script>
+    </body>
+</html>
