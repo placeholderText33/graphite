@@ -341,39 +341,6 @@ function clearObjectMenu() {
         document.getElementById("main_menu").style.display = "block";
     }
 }
-
-function isFull(top) {
-    if (top == (maxSize - 1)) {
-        return true;
-    }
-    return false;
-}
-
-function isEmpty(top) {
-    if (top == -1) {
-        return true;
-    }
-    return false;
-}
-
-function push(top, stack, item) {
-    if(isFull(top)) {
-        return;
-    } else {
-        top += 1;
-        stack[top] = item;
-    }
-}
-
-function pop(top, stack) {
-    if (isEmpty(top)) {
-        return;
-    } else {
-        let removedItem = stack[top]
-        top -= 1;
-        stack.pop(removedItem)
-    }
-}
 const borderCollisionLoop = setInterval(borderCollision);
 
 function borderCollision() {
@@ -449,7 +416,6 @@ function lineAngle(line) {
     return angle
 }
 
-/*
 function lineCollisionRes(circle, line) {
     // repositions the circle based off of its intersection with the line
     const nearestPoint = lineNearest(circle, line);
@@ -485,14 +451,13 @@ function lineCollisionRes(circle, line) {
     tanMomentum = tanMomentum.add(frictionVec);
     let newTanVel = tanMomentum.scale(1 / circle.mass)
 
-    //patch fix -- intvestigate later
+    //patch fix -- kind of works
     if (newTanVel.mag() < 0.02) {
         newTanVel = new Vector(0, 0);
     }
 
     circle.vel = newNormVel.add(newTanVel);
 }
-*/
 
 function circleCollisionRes(circle1, circle2) {
     // repositions circles based off of their intersection with one another
@@ -522,14 +487,14 @@ function circleCollisionRes(circle1, circle2) {
 };
 
 
-const testing = setInterval(collision);
+const collisionLoop = setInterval(collision);
 
 function collision() {
     shapes.forEach(shape => {
         obstacles.forEach(obstacle => {
             if (lineCollisionDet(shape, obstacle)) {
                 console.log("collision")
-                //lineCollisionRes(shape, obstacle);
+                lineCollisionRes(shape, obstacle);
             }
         })
     });
@@ -544,7 +509,7 @@ function collision() {
     }
 }
 
-// const gravityLoop = setInterval(gravityFunc)
+const gravityLoop = setInterval(gravityFunc)
 
 function gravityFunc() {
     shapes.forEach(shape => {
