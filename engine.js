@@ -483,8 +483,8 @@ function circleCollisionRes(circle1, circle2) {
     // repositions circles based off of their intersection with one another
     const distanceVector = circle1.pos.sub(circle2.pos);
     const distUnit = distanceVector.unit();
-    const intersectionDepth = distanceVector.mag() - (circle1.radius + circle2.radius);
-    const interectionVector = distUnit.scale(intersectionDepth);
+    const intersectionMag = distanceVector.mag() - (circle1.radius + circle2.radius);
+    const interectionVector = distUnit.scale(intersectionMag);
     circle1.pos = circle1.pos.sub(interectionVector);
     circle2.pos = circle2.pos.add(interectionVector);
 
