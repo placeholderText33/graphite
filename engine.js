@@ -416,6 +416,30 @@ function lineAngle(line) {
     return angle
 }
 
+
+function lineCollisionRes(circle, line) {
+    //repositions the circle based off of its intersection with the line
+    const nearestPoint = lineNearest(circle, line);
+    const distanceVector = nearestPoint.sub(circle.pos);
+    const distUnit = distanceVector.unit();
+    const intersectionMag = circle.radius - distanceVector.mag();
+    const interectionVector = distUnit.scale(intersectionMag);
+    circle.pos = circle.pos.sub(interectionVector);
+
+    //finds the vector projections
+    const tangentUnit = distUnit.tangent();
+    const normalProjection = circle.vel.scalarProd(distUnit);
+    const tangentProjection = circle.vel.scalarProd(tangentUnit);
+
+    //scales projections by their respective vectors
+    const normalVel = distUnit.scale(-normalProjection * elasticity)
+    const tangentVel = tangentUnit.scale(tangentProjection)
+
+    circle.vel = normalVel.add(tangentVel)
+
+}
+
+
 function lineCollisionRes(circle, line) {
     // repositions the circle based off of its intersection with the line
     const nearestPoint = lineNearest(circle, line);
@@ -467,15 +491,15 @@ function circleCollisionRes(circle1, circle2) {
     // projects the two objects' velocities along the normal and the tangent of the collision
     const tangentUnit = distUnit.tangent();
     const c1NormalProjection = circle1.vel.scalarProd(distUnit);
-    const c1VelTangentProjection = circle1.vel.scalarProd(tangentUnit);
-    const c2TangentProjection = circle2.vel.scalarProd(distUnit);
-    const c2NormalProjection= circle2.vel.scalarProd(tangentUnit);
+    const c1TangentProjection = circle1.vel.scalarProd(tangentUnit);
+    const c2NormalProjection = circle2.vel.scalarProd(distUnit);
+    const c2TangentProjection= circle2.vel.scalarProd(tangentUnit);
 
     // scales the projection magnitudes by their respective unit vectors (either the normal or tangent)
     const c1NormalVel = distUnit.scale(((c1NormalProjection * (circle1.mass - circle2.mass)) + (c2NormalProjection  * 2 * circle2.mass)) / (circle1.mass + circle2.mass));
     const c2NormalVel = distUnit.scale(((c2TangentProjection * (circle2.mass - circle1.mass)) + (c1NormalProjection * 2 * circle1.mass)) / (circle1.mass + circle2.mass));
-    const c1TangentVel = tangentUnit.scale(c1VelTangentProjection * elasticity);
-    const c2TangentVel = tangentUnit.scale(c2NormalProjection * elasticity);
+    const c1TangentVel = tangentUnit.scale(c1TangentProjection * elasticity);
+    const c2TangentVel = tangentUnit.scale(c2TangentProjection * elasticity);
 
     // calculates the final velocity
     circle1.vel = c1NormalVel.add(c1TangentVel);
@@ -514,3 +538,4 @@ function gravityFunc() {
         currentShape.vel.y = 0;
     };
 };
+
