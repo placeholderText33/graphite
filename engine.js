@@ -416,30 +416,6 @@ function lineAngle(line) {
     return angle
 }
 
-
-function lineCollisionRes(circle, line) {
-    //repositions the circle based off of its intersection with the line
-    const nearestPoint = lineNearest(circle, line);
-    const distanceVector = nearestPoint.sub(circle.pos);
-    const distUnit = distanceVector.unit();
-    const intersectionMag = circle.radius - distanceVector.mag();
-    const interectionVector = distUnit.scale(intersectionMag);
-    circle.pos = circle.pos.sub(interectionVector);
-
-    //finds the vector projections
-    const tangentUnit = distUnit.tangent();
-    const normalProjection = circle.vel.scalarProd(distUnit);
-    const tangentProjection = circle.vel.scalarProd(tangentUnit);
-
-    //scales projections by their respective vectors
-    const normalVel = distUnit.scale(-normalProjection * elasticity)
-    const tangentVel = tangentUnit.scale(tangentProjection)
-
-    circle.vel = normalVel.add(tangentVel)
-
-}
-
-
 function lineCollisionRes(circle, line) {
     // repositions the circle based off of its intersection with the line
     const nearestPoint = lineNearest(circle, line);
