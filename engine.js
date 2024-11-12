@@ -153,7 +153,7 @@ class Vector {
         return (this.x * vector.x) + (this.y * vector.y);
     };
 
-    display(startX, startY) {
+    draw(startX, startY) {
         context.beginPath();
         context.moveTo(startX, startY);
         context.lineTo(startX + (this.x * 3), startY + (this.y * 3));
@@ -179,14 +179,6 @@ class Circle {
         context.fillStyle = this.colour;
         context.fill();
         context.stroke(); 
-    }
-
-    displayVel() {
-        this.vel.display(this.pos.x, this.pos.y);
-    }
-
-    displayGrav() {
-        gravity.display(this.pos.x, this.pos.y);
     }
 }
 
@@ -250,20 +242,20 @@ function mouseDown(event) {
     } 
 }
 
+//the two functions below continuously redraw both the velocity and gravity vectors for all objects within the rendering context
 function gravVecDisplay() {
     shapes.forEach(shape => {
-        shape.displayGrav();
+        gravity.draw(shape.pos.x, shape.pos.y)
     })
     window.requestAnimationFrame(gravVecDisplay);
 }
 
 function velVecDisplay() {
     shapes.forEach(shape => {
-        shape.displayVel();
+        shape.vel.draw(shape.pos.x, shape.pos.y)
     })
     window.requestAnimationFrame(velVecDisplay);
 }
-
 
 // checks if the mouse button has been released 
 function mouseRelease() {
@@ -514,4 +506,3 @@ function gravityFunc() {
         currentShape.vel.y = 0;
     };
 };
-
